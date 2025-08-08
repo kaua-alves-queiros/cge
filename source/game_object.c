@@ -43,7 +43,7 @@ cge_game_object* cge_get_child_by_name(cge_game_object* self, char* name)
     }
 }
 
-cge_game_object cge_game_object_remove(cge_game_object* self, char* name)
+cge_game_object cge_game_object_remove_child_by_name(cge_game_object* self, char* name)
 {
     cge_game_object* to_remove;
     cge_game_object* current = self->children;
@@ -51,7 +51,7 @@ cge_game_object cge_game_object_remove(cge_game_object* self, char* name)
 
 void cge_game_object_free(cge_game_object* self)
 {
-    
+
 }
 
 void cge_game_object_call_on_start(cge_game_object* self);
