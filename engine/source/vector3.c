@@ -82,14 +82,14 @@ float cge_vector3_magnitude_squared(cge_vector3* self)
 
 float cge_vector3_magnitude(cge_vector3* self)
 {
-    float sum_of_squares = vector3_magnitude_squared(self);
+    float sum_of_squares = cge_vector3_magnitude_squared(self);
 
     return sqrtf(sum_of_squares);
 }
 
 void cge_vector3_normalize(cge_vector3* self)
 {
-    float magnitude = vector3_magnitude(self);
+    float magnitude = cge_vector3_magnitude(self);
 
     if(magnitude == 0.0f)
     {
@@ -134,7 +134,7 @@ void cge_vector3_clamp(cge_vector3* self, cge_vector3* minimum, cge_vector3* max
     if (self->z > maximum->z) self->z = maximum->z;
 }
 
-void cge_vector3_reflect(cge_vector3* self, const cge_vector3* normal) {
+void cge_vector3_reflect(cge_vector3* self, cge_vector3* normal) {
     float dot = self->x * normal->x + self->y * normal->y + self->z * normal->z;
 
     self->x = self->x - 2.0f * dot * normal->x;
@@ -142,7 +142,7 @@ void cge_vector3_reflect(cge_vector3* self, const cge_vector3* normal) {
     self->z = self->z - 2.0f * dot * normal->z;
 }
 
-void cge_vector3_project(cge_vector3* self, const cge_vector3* b) {
+void cge_vector3_project(cge_vector3* self, cge_vector3* b) {
     float dot_ab = self->x * b->x + self->y * b->y + self->z * b->z;
 
     float dot_bb = b->x * b->x + b->y * b->y + b->z * b->z;
@@ -154,7 +154,7 @@ void cge_vector3_project(cge_vector3* self, const cge_vector3* b) {
     self->z = scalar * b->z;
 }
 
-void cge_vector3_reject(cge_vector3* self, const cge_vector3* b) {
+void cge_vector3_reject(cge_vector3* self, cge_vector3* b) {
     float dot_ab = self->x * b->x + self->y * b->y + self->z * b->z;
     float dot_bb = b->x * b->x + b->y * b->y + b->z * b->z;
     float scalar = dot_ab / dot_bb;

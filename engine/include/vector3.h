@@ -1,6 +1,7 @@
 #ifndef CGE_VECTOR3_H
 #define CGE_VECTOR3_H
 #include <stdlib.h>
+#include "./vector4.h"
 
 typedef struct cge_vector3 cge_vector3;
 
@@ -36,4 +37,7 @@ void cge_vector3_clamp(cge_vector3* self, cge_vector3* minimum, cge_vector3* max
 void cge_vector3_reflect(cge_vector3* self, cge_vector3* normal);
 void cge_vector3_project(cge_vector3* self, cge_vector3* b);
 void cge_vector3_reject(cge_vector3* self, cge_vector3* b);
+
+void cge_vector3_rotate_by_quaternion(cge_vector3* self, cge_vector4* quaternion);
+void cge_vector3_hadamard(cge_vector3* self, cge_vector3* b);
 #endif
