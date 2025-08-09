@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.10)
-project(cge C)
 
-include_directories(include)
+project(GameEngine C)
+set(CMAKE_C_STANDARD 99)
 
-add_executable(cge source/main.c source/game_object.c)
+add_subdirectory(engine)
+add_subdirectory(test)
