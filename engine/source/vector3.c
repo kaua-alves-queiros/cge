@@ -184,7 +184,6 @@ void  cge_vector3_project(float*  a, float* b, float* out)
         out[0] = out[1] = out[2] = 0.0f;
     }
 }
-}
 
 void  cge_vector3_reject(float*  self, float*  b, float* out);
 
